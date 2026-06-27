@@ -1,118 +1,29 @@
-# RAPPID — how RAPP organisms are born
+# Identity & Lineage
 
-**RAPPID** (RAPP + **ID**entity; also *rapid*) is the speciation system for the RAPP
-platform. It lets a new repo **split off the common ancestor**, rewire itself to
-pull from **itself**, and keep nothing but a **traceable lineage** pointing home.
+`rapp_orion` is a **variant** in the RAPP species tree. Its identity follows the single
+global **Eternity rappid standard** (`rapp-rappid/2.0`) defined by the species root
+[`kody-w/RAPP`](https://github.com/kody-w/RAPP) — see RAPP's `CONSTITUTION.md` **Article XXXIV**
+and `pages/vault/Architecture/Rappid.md`.
 
-> Metaphor: there is one ancestral **grail** — `kody-w/rapp-installer`. Every new
-> repo forked from it is an **organism** that *speciates*: it mutates its
-> self-identity, severs every functional tie to the ancestor, and lives its own
-> life. The only thing it keeps is a record of descent.
+- **This organism:** `rappid:@kody-w/rapp_orion:00c48fc540044d96a5480e2b90d8e29d`
+- **Parent (species root / godfather):** `rappid:@kody-w/RAPP:0b635450c04249fbb4b1bdb571044dec`
+- **Manifest:** [`rappid.json`](./rappid.json) — schema `rapp-rappid/2.0`.
 
-This repo, **`rapp_orion`**, is the first such organism.
+There is **one rappid format, one species tree, one godfather.** A rappid is immutable; minting
+a new one is the birth of a child organism (Article XXXIV — single-parent rule). To mint or
+re-initialize a variant, use RAPP's canonical flow `installer/initialize-variant.sh` — not a
+local tool.
 
----
+## Living twin
 
-## The model
+`hatch_twin.sh` stands up a **running local instance** ("living twin") of this organism under
+`~/.brainstem/twins/<name>/`, on its own port, alongside the global brainstem. The twin is the
+living counterpart of this repo's static genome; its `twin.json` carries this organism's
+canonical `rappid` for provenance.
 
-| Term | Meaning |
-|------|---------|
-| **grail** | The genesis ancestor, `kody-w/rapp-installer`. Constant for all descendants. |
-| **organism** | A repo that has speciated and now pulls from itself (e.g. `rapp_orion`). |
-| **speciation** | The one-time act of rewriting self-identity + recording the split. |
-| **self gene** | A reference that points the world at *this* repo (clone/curl/Pages/issues). Mutates. |
-| **sibling** | A *different* organism the repo interoperates with (CommunityRAPP, AI-Agent-Templates, RAR). Preserved. |
-| **anatomy** | Structural/branding names (`RAPP`, `brainstem`, `~/.brainstem`). Preserved. |
+## Migration note
 
-A speciation **mutates only the self genes** and leaves siblings, anatomy, and
-binaries alone. That is the whole point: independence at the gateway, continuity
-everywhere else.
-
-### What mutates (self genes)
-
-Every spelling of "where do I tell people to get me":
-
-- `<owner>.github.io/<repo>` — the GitHub Pages gateway
-- `<owner>%2F<repo>` — URL-encoded forms (the **Deploy to Azure** button)
-- `<owner>/<repo>` — `github.com`, `raw.githubusercontent.com`, `api.github.com/repos/…`, `gh --repo`
-- bare `<repo>` — prose, `*.git` URLs, the installer test assertion
-
-This includes the in-server **feedback → GitHub Issues** target in
-`rapp_brainstem/brainstem.py`, so bug reports land in the organism's own tracker.
-
-### What is preserved
-
-- **Siblings** — `kody-w/CommunityRAPP` (Tier 2 / Azure), `kody-w/AI-Agent-Templates`
-  (remote agents), `kody-w/RAR`. They are separate live organisms, listed under
-  `siblings` in `rappid.json`, and are **never** auto-rewritten. Repoint them by
-  hand if you ever fork them too.
-- **Anatomy & branding** — `RAPP`, `brainstem`, the `~/.brainstem` install home,
-  and component directories (`rapp_brainstem/`, `community_rapp/`).
-- **Binaries** — `*.zip` (the Power Platform solution), images, fonts.
-- **The machinery** — `speciate.sh` and this file hold the immutable grail
-  constant for *all* descendants, so the tool never rewrites them.
-
----
-
-## Birthing a new organism
-
-1. **Fork / template** the grail (or any organism) into a new repo, e.g.
-   `kody-w/rapp_nova`, and clone it locally.
-2. From the repo root, run the speciation:
-
-   ```bash
-   ./speciate.sh --owner kody-w --repo rapp_nova
-   ```
-
-   Preview first with `--dry-run`. Skip the prompt with `-y`. Repoint the git
-   remote at the same time with `--set-remote`.
-3. Review `git diff`, read `LINEAGE.md`, run `bash tests/test_installer.sh`.
-4. Commit and push to the new repo. Done — `rapp_nova` now pulls from itself and
-   has no functional link back to its parent.
-
-The tool auto-detects the parent: it reads the current identity from
-`rappid.json` if present, otherwise assumes the grail. So a grandchild
-(`grail → orion → nova`) correctly records orion as its parent and appends a new
-row to the chain.
-
-### Files the tool produces
-
-- **`rappid.json`** — the manifest. Single source of truth for this organism's
-  identity, its siblings, and the full ancestry chain.
-- **`LINEAGE.md`** — generated from the manifest; the human-readable descent.
-
----
-
-## `rappid.json` shape
-
-```jsonc
-{
-  "schema": "rappid/v1",
-  "organism": "rapp_orion",
-  "identity": {
-    "owner": "kody-w",
-    "repo": "rapp_orion",
-    "branch": "main",
-    "github_pages": "kody-w.github.io/rapp_orion",
-    "clone_url": "https://github.com/kody-w/rapp_orion.git",
-    "raw_base": "https://raw.githubusercontent.com/kody-w/rapp_orion/main",
-    "issues_repo": "kody-w/rapp_orion"
-  },
-  "siblings": { "hippocampus": "kody-w/CommunityRAPP", "...": "..." },
-  "preserved": ["RAPP", "brainstem", "~/.brainstem", "..."],
-  "lineage": [
-    {
-      "parent": { "owner": "kody-w", "repo": "rapp-installer" },
-      "child":  { "owner": "kody-w", "repo": "rapp_orion" },
-      "role": "grail",
-      "speciated_from_commit": "…",
-      "speciated_at": "…Z",
-      "tool": "speciate.sh"
-    }
-  ]
-}
-```
-
-Each `lineage` entry is one speciation event. Oldest (grail) first; the last
-entry's `child` is this organism. That ordered list **is** the rapid lineage —
-the only thread tying the organism back to where it came from.
+This repo previously carried a parallel **`rappid/v1`** system (`speciate.sh`, `RAPPID-SPEC.md`,
+`LINEAGE.md`, and a bootstrap GitHub Action). That was a non-standard, parallel identity format
+and has been **retired** in favor of the single Eternity standard above. Lineage now lives in
+`rappid.json` as one `parent_rappid` chaining to the RAPP species root.

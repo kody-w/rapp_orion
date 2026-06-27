@@ -8,10 +8,10 @@
 #   • the LIVING twin   — a running brainstem instance, hatched from that genome
 #     into the global brainstem home (~/.brainstem/twins/<repo>/), on its own port.
 #
-# This is the runtime counterpart of speciate.sh: speciate.sh hatches a new static
-# genome (identity split on GitHub); hatch_twin.sh hatches the living twin of an
-# existing genome. The twin runs the organism's OWN engine, alongside — never
-# replacing — the global brainstem.
+# Where RAPP's installer/initialize-variant.sh mints a new STATIC organism (an
+# Eternity rappid + lineage on GitHub), hatch_twin.sh hatches the LIVING twin of
+# an existing organism. The twin runs the organism's OWN engine, alongside —
+# never replacing — the global brainstem.
 #
 # Usage:
 #   ./hatch_twin.sh [--port N] [--name NAME] [--no-launch] [-h]
@@ -49,18 +49,24 @@ git rev-parse --show-toplevel >/dev/null 2>&1 || die "not inside a git repositor
 ROOT="$(git rev-parse --show-toplevel)"
 RB="$ROOT/rapp_brainstem"
 [ -d "$RB" ] || die "no rapp_brainstem/ in this repo — nothing to hatch"
-[ -f "$ROOT/rappid.json" ] || die "no rappid.json — run ./speciate.sh first to establish identity"
+[ -f "$ROOT/rappid.json" ] || die "no rappid.json — initialize this organism's identity first (RAPP installer/initialize-variant.sh)"
 
 BRAINSTEM_HOME="${BRAINSTEM_HOME:-$HOME/.brainstem}"
 VENV_PY="$BRAINSTEM_HOME/venv/bin/python"
 GLOBAL_ENGINE="$BRAINSTEM_HOME/src/rapp_brainstem"   # source of shared auth
 [ -x "$VENV_PY" ] || die "global brainstem venv not found at $VENV_PY — install the brainstem first"
 
-# ── identity from the static genome ───────────────────────────────────────────
-read_id() { python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["identity"].get(sys.argv[2],""))' "$ROOT/rappid.json" "$1"; }
-OWNER="$(read_id owner)"; REPO="$(read_id repo)"; BRANCH="$(read_id branch)"
-CLONE_URL="$(read_id clone_url)"; RAW_BASE="$(read_id raw_base)"; PAGES="$(read_id github_pages)"
-[ -n "$REPO" ] || die "could not read identity.repo from rappid.json"
+# ── identity from the organism's rappid (Eternity standard, rapp-rappid/2.0) ──
+jget() { python3 -c 'import json,sys;print(json.load(open(sys.argv[1])).get(sys.argv[2],"") or "")' "$ROOT/rappid.json" "$1"; }
+RAPPID="$(jget rappid)"; PARENT_RAPPID="$(jget parent_rappid)"; NAME="$(jget name)"
+[ -n "$RAPPID" ] || die "no Eternity rappid in rappid.json (expected schema rapp-rappid/2.0)"
+# parse rappid:@<owner>/<slug>:<hash>
+_b="${RAPPID#rappid:@}"; OWNER="${_b%%/*}"; _rest="${_b#*/}"; REPO="${_rest%%:*}"
+[ -n "$OWNER" ] && [ -n "$REPO" ] || die "could not parse owner/slug from rappid: $RAPPID"
+BRANCH="$(git symbolic-ref --short HEAD 2>/dev/null || echo main)"
+CLONE_URL="https://github.com/$OWNER/$REPO.git"
+RAW_BASE="https://raw.githubusercontent.com/$OWNER/$REPO/$BRANCH"
+PAGES="$OWNER.github.io/$REPO"
 SRC_COMMIT="$(git rev-parse HEAD 2>/dev/null || echo unknown)"
 STAMP="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
@@ -113,12 +119,14 @@ else warn "no shared token found — the twin will fall back to 'gh auth token' 
 # ── write the twin marker: the living <-> static link ─────────────────────────
 OWNER="$OWNER" REPO="$REPO" BRANCH="$BRANCH" CLONE_URL="$CLONE_URL" RAW_BASE="$RAW_BASE" \
 PAGES="$PAGES" SRC_COMMIT="$SRC_COMMIT" STAMP="$STAMP" PORT="$PORT" TWIN_DIR="$TWIN_DIR" \
-VENV_PY="$VENV_PY" python3 - <<'PY'
+VENV_PY="$VENV_PY" RAPPID="$RAPPID" PARENT_RAPPID="$PARENT_RAPPID" NAME="$NAME" python3 - <<'PY'
 import json, os
 m = {
-  "schema": "rappid-twin/v1",
+  "schema": "brainstem-twin-runtime/1",
   "kind": "local-living-twin",
-  "organism": os.environ["REPO"],
+  "organism": os.environ.get("NAME") or os.environ["REPO"],
+  "rappid": os.environ["RAPPID"],
+  "parent_rappid": os.environ.get("PARENT_RAPPID") or None,
   "identity": {"owner": os.environ["OWNER"], "repo": os.environ["REPO"], "branch": os.environ["BRANCH"]},
   # the published counterpart this living twin mirrors:
   "static_genome": {
