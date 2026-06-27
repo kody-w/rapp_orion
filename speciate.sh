@@ -50,7 +50,7 @@ DEFAULT_SIBLINGS_JSON='{"hippocampus":"kody-w/CommunityRAPP","agent_templates":"
 # Files that must never be identity-mutated (machinery + generated artifacts).
 is_protected() {
   case "$1" in
-    rappid.json|LINEAGE.md|speciate.sh|RAPPID.md|RAPPID-SPEC.md|.github/workflows/speciate.yml) return 0;;
+    rappid.json|LINEAGE.md|speciate.sh|hatch_twin.sh|RAPPID.md|RAPPID-SPEC.md|.github/workflows/speciate.yml) return 0;;
     *) return 1;;
   esac
 }

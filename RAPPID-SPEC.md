@@ -117,7 +117,8 @@ in-place rewrite, so the reported count and the applied change cannot diverge.
 Applied to every **git-tracked** path EXCEPT:
 
 - **Protected** (never mutated): `rappid.json`, `LINEAGE.md`, `speciate.sh`,
-  `RAPPID.md`, `RAPPID-SPEC.md`, `.github/workflows/speciate.yml`.
+  `hatch_twin.sh`, `RAPPID.md`, `RAPPID-SPEC.md`,
+  `.github/workflows/speciate.yml`.
 - **Binary / non-text**: `*.zip`, common image/font/media extensions, and any
   file Git treats as binary (probed with `grep -I`).
 - Empty files (nothing to change).
@@ -227,4 +228,42 @@ By I1, this can only ever write to the repo it runs in — never an ancestor.
   elsewhere.
 - **Grail edits**: never performed by tooling; if ever needed, delivered as a
   reviewable checklist for a human to run (see `RAPPID.md` / `never-write` rule).
+
+---
+
+## 12. Living twins (runtime, `rappid-twin/v1`)
+
+A speciated organism has two bodies: the **static genome** (the published repo,
+served as `raw.githubusercontent` data — it does not run) and zero or more
+**living twins** (running brainstem instances hatched from that genome).
+`hatch_twin.sh` produces a twin:
+
+- copies the organism's `rapp_brainstem/` genome into
+  `~/.brainstem/twins/<name>/` (excluding `agents/experimental/`, `__pycache__/`);
+- stamps the twin dir with `rappid.json` + `LINEAGE.md` (identity provenance) and
+  shares the global brainstem's Copilot auth (`.copilot_token`/`.copilot_session`);
+- writes `twin.json` (the living↔static link);
+- launches the organism's **own** engine on its own free port (default ≥ 7072),
+  **alongside — never replacing —** the global brainstem, then waits for `/health`.
+
+`twin.json`:
+
+```jsonc
+{
+  "schema": "rappid-twin/v1",
+  "kind": "local-living-twin",
+  "organism": "<repo>",
+  "identity":      { "owner": "<o>", "repo": "<r>", "branch": "<b>" },
+  "static_genome": { "clone_url": "…", "raw_base": "…",
+                     "github_pages": "…", "source_commit": "<sha>" },
+  "runtime":       { "engine": "own", "twin_dir": "…",
+                     "host": "http://localhost:<port>", "port": <n>,
+                     "venv_python": "…" },
+  "hatched_at": "<ISO-8601 UTC>",
+  "tool": "hatch_twin.sh"
+}
+```
+
+Invariant **I1** holds for twins: a twin runs locally and writes only under its
+own twin dir; it never modifies the static genome or any ancestor.
 ```
