@@ -12,12 +12,12 @@ The brainstem runs on your machine, uses GitHub Copilot as the LLM, auto-discove
 
 **macOS / Linux:**
 ```bash
-curl -fsSL https://kody-w.github.io/rapp-installer/install.sh | bash
+curl -fsSL https://kody-w.github.io/rapp_orion/install.sh | bash
 ```
 
 **Windows (PowerShell):**
 ```powershell
-irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex
 ```
 
 The installer handles Python 3.11, Git, cloning, pip deps, and the `brainstem` CLI command. Re-running the same one-liner auto-upgrades if a newer version is available.
@@ -25,7 +25,7 @@ The installer handles Python 3.11, Git, cloning, pip deps, and the `brainstem` C
 ### Manual
 
 ```bash
-git clone https://github.com/kody-w/rapp-installer.git ~/.brainstem/src
+git clone https://github.com/kody-w/rapp_orion.git ~/.brainstem/src
 cd ~/.brainstem/src/rapp_brainstem
 pip3 install -r requirements.txt
 ```

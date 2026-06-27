@@ -15,7 +15,7 @@ Philosophy: "engine, not experience" — this is infrastructure, not a consumer 
 - `community_rapp/` — Hippocampus (Tier 2) installer scripts. Parallel path, no dependency on brainstem.
 - `azuredeploy.json`, `deploy.sh`, `deploy.ps1` — Azure ARM deployment (Tier 2 cloud)
 - `MSFTAIBASMultiAgentCopilot_*.zip` — Power Platform solution for Copilot Studio (Tier 3)
-- `index.html` — Landing page served at kody-w.github.io/rapp-installer
+- `index.html` — Landing page served at kody-w.github.io/rapp_orion
 - `docs/` — Tutorial and docs pages for the landing site
 - `skill.md` — Moltbook-pattern onboarding skill (YAML frontmatter, autonomous steps, pause points)
 

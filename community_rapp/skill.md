@@ -10,7 +10,7 @@
 
 ```
 repo: kody-w/CommunityRAPP (public)
-public_gateway: kody-w/rapp-installer (this repo)
+public_gateway: kody-w/rapp_orion (this repo)
 type: azure-functions-backend
 purpose: Local-first AI agent platform with persistent memory
 tier: Hippocampus (Tier 2) — between Brainstem (T1) and Nervous System (T3)
@@ -30,12 +30,12 @@ The **Azure Functions backend** for the RAPP ecosystem. It provides persistent m
 
 **Mac / Linux:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.sh | bash
 ```
 
 **Windows:**
 ```powershell
-irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.ps1 | iex
+irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.ps1 | iex
 ```
 
 Creates `~/rapp-projects/{name}/` with its own venv, dependencies, and start script.

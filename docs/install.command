@@ -10,4 +10,4 @@ echo ""
 echo "  Installing... (this window will become your brainstem server)"
 echo ""
 
-curl -fsSL https://kody-w.github.io/rapp-installer/install.sh | bash
+curl -fsSL https://kody-w.github.io/rapp_orion/install.sh | bash

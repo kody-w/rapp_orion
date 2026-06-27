@@ -3,7 +3,7 @@
 # Deploy Azure resources needed for RAPP
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/kody-w/rapp-installer/main/deploy.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/kody-w/rapp_orion/main/deploy.sh | bash
 #   Or: ./deploy.sh [resource-group-name] [location] [openai-location]
 
 set -e
@@ -15,7 +15,7 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-TEMPLATE_URL="https://raw.githubusercontent.com/kody-w/rapp-installer/main/azuredeploy.json"
+TEMPLATE_URL="https://raw.githubusercontent.com/kody-w/rapp_orion/main/azuredeploy.json"
 
 # Available OpenAI regions
 OPENAI_REGIONS="australiaeast canadaeast eastus eastus2 francecentral japaneast northcentralus norwayeast southcentralus swedencentral switzerlandnorth uksouth westeurope westus westus3"
@@ -244,7 +244,7 @@ echo "════════════════════════�
 echo ""
 echo "Next steps:"
 echo "  1. Install RAPP:"
-echo "     curl -fsSL https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.sh | bash"
+echo "     curl -fsSL https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.sh | bash"
 echo ""
 echo "  2. Run setup and select 'existing' to connect:"
 echo "     rapp setup"

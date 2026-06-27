@@ -1,6 +1,6 @@
 #!/bin/bash
 # CommunityRAPP — One-line installer (Hippocampus / Tier 2)
-# Usage: curl -fsSL https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.sh | bash
 #
 # Creates a ready-to-run CommunityRAPP project with persistent memory,
 # auto-discovered agents, and GitHub Copilot device-code auth through the UI.

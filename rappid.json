@@ -1,0 +1,41 @@
+{
+  "schema": "rappid/v1",
+  "organism": "rapp_orion",
+  "identity": {
+    "owner": "kody-w",
+    "repo": "rapp_orion",
+    "branch": "main",
+    "github_pages": "kody-w.github.io/rapp_orion",
+    "clone_url": "https://github.com/kody-w/rapp_orion.git",
+    "raw_base": "https://raw.githubusercontent.com/kody-w/rapp_orion/main",
+    "issues_repo": "kody-w/rapp_orion"
+  },
+  "siblings": {
+    "hippocampus": "kody-w/CommunityRAPP",
+    "agent_templates": "kody-w/AI-Agent-Templates",
+    "rar": "kody-w/RAR"
+  },
+  "preserved": [
+    "RAPP",
+    "brainstem",
+    "~/.brainstem",
+    "rapp_brainstem/",
+    "community_rapp/"
+  ],
+  "lineage": [
+    {
+      "parent": {
+        "owner": "kody-w",
+        "repo": "rapp-installer"
+      },
+      "child": {
+        "owner": "kody-w",
+        "repo": "rapp_orion"
+      },
+      "role": "grail",
+      "speciated_from_commit": "6c860c2ca512c816b832b20e33d54e22655e4d47",
+      "speciated_at": "2026-06-27T02:26:22Z",
+      "tool": "speciate.sh"
+    }
+  ]
+}

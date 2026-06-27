@@ -80,11 +80,11 @@ write, and share agents.
 The install experience is sacred:
 
 ```bash
-curl -fsSL https://kody-w.github.io/rapp-installer/install.sh | bash
+curl -fsSL https://kody-w.github.io/rapp_orion/install.sh | bash
 ```
 
 ```powershell
-irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex
 ```
 
 One command. Works on a fresh machine. Installs prerequisites, clones
@@ -146,7 +146,7 @@ GitHub. The user's brainstem is their brainstem.
 
 ## Article VIII — Universal Platform Gateway
 
-The `rapp-installer` repo is the **single entry point** for the entire RAPP platform. Users start where they want — not where we tell them to.
+The `rapp_orion` repo is the **single entry point** for the entire RAPP platform. Users start where they want — not where we tell them to.
 
 ### Two One-Liners, One Platform
 

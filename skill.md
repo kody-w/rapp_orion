@@ -2,8 +2,8 @@
 name: rapp-brainstem
 version: 1.0.0
 description: Install and configure RAPP Brainstem -- a local-first AI agent server powered by GitHub Copilot.
-homepage: https://kody-w.github.io/rapp-installer/
-metadata: {"emoji":"","category":"ai-agents","repo":"https://github.com/kody-w/rapp-installer"}
+homepage: https://kody-w.github.io/rapp_orion/
+metadata: {"emoji":"","category":"ai-agents","repo":"https://github.com/kody-w/rapp_orion"}
 ---
 
 # RAPP Brainstem
@@ -45,7 +45,7 @@ gh --version 2>/dev/null
 
 **On Windows**, skip all manual prereq checks -- the PowerShell installer handles everything automatically:
 ```powershell
-irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex
 ```
 It auto-installs Python 3.11, Git, and GitHub CLI via winget on a factory Windows 11 PC. If the user is on Windows and runs this, skip to Step 2 after it completes.
 
@@ -82,7 +82,7 @@ gh auth token >/dev/null 2>&1 && echo "yes authenticated" || echo "no not authen
 ### Step 3: Install the Brainstem
 
 ```bash
-git clone https://github.com/kody-w/rapp-installer.git ~/.brainstem/src 2>/dev/null || (cd ~/.brainstem/src && git pull)
+git clone https://github.com/kody-w/rapp_orion.git ~/.brainstem/src 2>/dev/null || (cd ~/.brainstem/src && git pull)
 cd ~/.brainstem/src/rapp_brainstem
 pip3 install -r requirements.txt -q
 ```
@@ -227,7 +227,7 @@ az group create --name $RESOURCE_GROUP --location $LOCATION -o none
 
 az deployment group create \
  --resource-group $RESOURCE_GROUP \
- --template-uri https://raw.githubusercontent.com/kody-w/rapp-installer/main/azuredeploy.json \
+ --template-uri https://raw.githubusercontent.com/kody-w/rapp_orion/main/azuredeploy.json \
  --parameters openAILocation=swedencentral \
  -o none
 ```

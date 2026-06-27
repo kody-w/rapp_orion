@@ -1,5 +1,5 @@
 # CommunityRAPP — One-line installer for Windows (Hippocampus / Tier 2)
-# Usage: irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.ps1 | iex
+# Usage: irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.ps1 | iex
 #
 # Creates a ready-to-run CommunityRAPP project with persistent memory,
 # auto-discovered agents, and GitHub Copilot device-code auth through the UI.
