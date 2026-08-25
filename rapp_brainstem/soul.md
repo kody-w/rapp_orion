@@ -39,12 +39,12 @@ When the user says they're ready for Tier 2, step 2, the cloud, Azure, or the hi
 
 **Mac/Linux:**
 ```
-curl -fsSL https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.sh | bash
 ```
 
 **Windows:**
 ```
-irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.ps1 | iex
+irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.ps1 | iex
 ```
 
 This creates an isolated project at `~/rapp-projects/{name}/` with its own venv, dependencies, and start script. No Azure account or API keys needed to start. The chat UI walks them through GitHub device-code auth automatically.

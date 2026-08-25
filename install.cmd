@@ -9,7 +9,7 @@ echo.
 echo   Launching installer...
 echo.
 
-powershell -ExecutionPolicy Bypass -Command "& { irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex }"
+powershell -ExecutionPolicy Bypass -Command "& { irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex }"
 
 if %ERRORLEVEL% neq 0 (
     echo.

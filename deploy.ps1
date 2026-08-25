@@ -2,7 +2,7 @@
 # Deploy Azure resources needed for RAPP
 #
 # Usage:
-#   irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/deploy.ps1 | iex
+#   irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/deploy.ps1 | iex
 #   Or: .\deploy.ps1 [-ResourceGroup "rapp-rg"] [-Location "eastus2"] [-OpenAILocation "eastus2"]
 
 param(
@@ -13,7 +13,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$TemplateUrl = "https://raw.githubusercontent.com/kody-w/rapp-installer/main/azuredeploy.json"
+$TemplateUrl = "https://raw.githubusercontent.com/kody-w/rapp_orion/main/azuredeploy.json"
 
 # Available OpenAI regions
 $OpenAIRegions = @(
@@ -230,7 +230,7 @@ Write-Host "===================================================" -ForegroundColo
 Write-Host ""
 Write-Host "Next steps:"
 Write-Host "  1. Install RAPP:"
-Write-Host "     irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex"
+Write-Host "     irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex"
 Write-Host ""
 Write-Host "  2. Run setup and select 'existing' to connect:"
 Write-Host "     rapp setup"

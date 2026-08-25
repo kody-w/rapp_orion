@@ -2,14 +2,14 @@
 set -e
 
 # RAPP Brainstem Installer
-# Usage: curl -fsSL https://kody-w.github.io/rapp-installer/install.sh | bash
+# Usage: curl -fsSL https://kody-w.github.io/rapp_orion/install.sh | bash
 # Pin a version: curl ... install.sh | bash -s -- --version v0.6.0
 
 BRAINSTEM_HOME="$HOME/.brainstem"
 BRAINSTEM_BIN="$HOME/.local/bin"
 VENV_DIR="$BRAINSTEM_HOME/venv"
-REPO_URL="https://github.com/kody-w/rapp-installer.git"
-REMOTE_VERSION_URL="https://raw.githubusercontent.com/kody-w/rapp-installer/main/rapp_brainstem/VERSION"
+REPO_URL="https://github.com/kody-w/rapp_orion.git"
+REMOTE_VERSION_URL="https://raw.githubusercontent.com/kody-w/rapp_orion/main/rapp_brainstem/VERSION"
 PIN_VERSION=""
 
 # Colors

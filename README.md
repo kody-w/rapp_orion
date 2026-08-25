@@ -1,16 +1,16 @@
 # 🧠 RAPP Brainstem
 
-> **👉 [Get Started at kody-w.github.io/rapp-installer](https://kody-w.github.io/rapp-installer/)**
+> **👉 [Get Started at kody-w.github.io/rapp_orion](https://kody-w.github.io/rapp_orion/)**
 
 A local-first AI agent server powered by GitHub Copilot. No API keys. No cloud setup. Just your GitHub account.
 
 ```
-curl -fsSL https://kody-w.github.io/rapp-installer/install.sh | bash
+curl -fsSL https://kody-w.github.io/rapp_orion/install.sh | bash
 ```
 
 **Windows (PowerShell — works on factory Windows 11):**
 ```powershell
-irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex
 ```
 Auto-installs Python 3.11, Git, and GitHub CLI via winget if missing.
 
@@ -28,12 +28,12 @@ Want persistent memory, Azure Functions, and a path to Copilot Studio? Skip the 
 
 **Mac / Linux:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.sh | bash
 ```
 
 **Windows:**
 ```powershell
-irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.ps1 | iex
+irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.ps1 | iex
 ```
 
 Creates `~/rapp-projects/my-project/` — isolated project with its own venv, agents, and local storage. Auth happens through the chat UI (GitHub device code flow). No API keys needed to start.
@@ -105,10 +105,10 @@ Give your brainstem a cloud body. Deploy to Azure so it's always-on with persist
 
 ```bash
 # Deploy via script
-curl -fsSL https://raw.githubusercontent.com/kody-w/rapp-installer/main/deploy.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kody-w/rapp_orion/main/deploy.sh | bash
 ```
 
-Or click: [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkody-w%2Frapp-installer%2Fmain%2Fazuredeploy.json)
+Or click: [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkody-w%2Frapp_orion%2Fmain%2Fazuredeploy.json)
 
 Creates: Function App (Python 3.11), Azure OpenAI (GPT-4o), Storage Account, Application Insights. All Entra ID auth — no API keys.
 

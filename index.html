@@ -232,7 +232,7 @@
     <div class="comment" id="install-comment"># Works everywhere. Installs everything. 🧠</div>
     <div class="prompt">
       <span class="dollar">$</span>
-      <span id="install-cmd">curl -fsSL https://kody-w.github.io/rapp-installer/install.sh | bash</span>
+      <span id="install-cmd">curl -fsSL https://kody-w.github.io/rapp_orion/install.sh | bash</span>
       <span class="copy-icon" id="copy-icon">📋</span>
     </div>
   </div>
@@ -258,8 +258,8 @@
         <div class="step">
           <h3>Run the one-liner</h3>
           <p>This is the only step. It installs Python, clones the repo, sets up a venv, authenticates, and launches.</p>
-          <div class="cmd" id="brainstem-cmd" onclick="copyCmd(event, this)">curl -fsSL https://kody-w.github.io/rapp-installer/install.sh | bash</div>
-          <p style="margin-top:6px;font-size:12px;color:#8b949e;">Windows: <code style="cursor:pointer" onclick="copyCmd(event, this)">irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex</code></p>
+          <div class="cmd" id="brainstem-cmd" onclick="copyCmd(event, this)">curl -fsSL https://kody-w.github.io/rapp_orion/install.sh | bash</div>
+          <p style="margin-top:6px;font-size:12px;color:#8b949e;">Windows: <code style="cursor:pointer" onclick="copyCmd(event, this)">irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex</code></p>
         </div>
       </div>
       <div class="install-download" id="install-download" style="margin-top:12px">
@@ -309,8 +309,8 @@
         <div class="step">
           <h3>Run the one-liner</h3>
           <p>This is the only step. It clones <a href="https://github.com/kody-w/CommunityRAPP">CommunityRAPP</a>, installs everything, and tells you what to do next.</p>
-          <div class="cmd" onclick="copyCmd(event, this)">curl -fsSL https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.sh | bash</div>
-          <p style="margin-top:6px;font-size:12px;color:#8b949e;">Windows: <code style="cursor:pointer" onclick="copyCmd(event, this)">irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/community_rapp/install.ps1 | iex</code></p>
+          <div class="cmd" onclick="copyCmd(event, this)">curl -fsSL https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.sh | bash</div>
+          <p style="margin-top:6px;font-size:12px;color:#8b949e;">Windows: <code style="cursor:pointer" onclick="copyCmd(event, this)">irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/community_rapp/install.ps1 | iex</code></p>
         </div>
       </div>
       <p style="margin-top:16px"><a href="https://kody-w.github.io/CommunityRAPP/onboard.html">Full onboarding guide</a></p>
@@ -330,7 +330,7 @@
               <p>Edit <code>local.settings.json</code> with your Azure OpenAI credentials, then publish.</p>
               <div class="cmd" onclick="copyCmd(event, this)">func azure functionapp publish YOUR_APP_NAME --build remote</div>
               <p style="margin-top:8px">Or deploy from the Azure Portal:</p>
-              <p style="margin-top:4px"><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkody-w%2Frapp-installer%2Fmain%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton" alt="Deploy to Azure" style="height:32px"></a></p>
+              <p style="margin-top:4px"><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkody-w%2Frapp_orion%2Fmain%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton" alt="Deploy to Azure" style="height:32px"></a></p>
             </div>
             <div class="step">
               <h3>Test the cloud deployment</h3>
@@ -359,7 +359,7 @@
         <div class="step">
           <h3>1. Download the solution</h3>
           <p>Grab the Power Platform solution package from the repo. This <code>.zip</code> contains the declarative agent, connectors, and flows preconfigured for your Azure Function.</p>
-          <div class="cmd" onclick="copyCmd(event, this)">curl -fsSL -o MSFTAIBASMultiAgentCopilot.zip https://raw.githubusercontent.com/kody-w/rapp-installer/main/MSFTAIBASMultiAgentCopilot_1_0_0_5.zip</div>
+          <div class="cmd" onclick="copyCmd(event, this)">curl -fsSL -o MSFTAIBASMultiAgentCopilot.zip https://raw.githubusercontent.com/kody-w/rapp_orion/main/MSFTAIBASMultiAgentCopilot_1_0_0_5.zip</div>
         </div>
         <div class="step">
           <h3>2. Import into Power Platform</h3>
@@ -388,7 +388,7 @@
 </div>
 
 <div class="links">
-  <a href="https://github.com/kody-w/rapp-installer">GitHub</a>
+  <a href="https://github.com/kody-w/rapp_orion">GitHub</a>
   <a href="https://github.com/kody-w/CommunityRAPP">Hippocampus Repo</a>
   <a href="https://kody-w.github.io/CommunityRAPP/onboard.html">Hippocampus Guide</a>
   <a href="rapp_brainstem/README.md">Brainstem Docs</a>
@@ -401,24 +401,24 @@
     'macOS/Linux': {
       'one-liner': {
         comment: '# Works everywhere. Installs everything. 🧠',
-        cmd: 'curl -fsSL https://kody-w.github.io/rapp-installer/install.sh | bash',
+        cmd: 'curl -fsSL https://kody-w.github.io/rapp_orion/install.sh | bash',
         hint: 'Works on macOS & Linux. Auto-installs Python 3.11 if missing.'
       },
       'manual': {
         comment: '# Clone, install deps, done.',
-        cmd: 'git clone https://github.com/kody-w/rapp-installer.git ~/.brainstem/src && cd ~/.brainstem/src/rapp_brainstem && pip3 install -r requirements.txt && ./start.sh',
+        cmd: 'git clone https://github.com/kody-w/rapp_orion.git ~/.brainstem/src && cd ~/.brainstem/src/rapp_brainstem && pip3 install -r requirements.txt && ./start.sh',
         hint: 'Requires Python 3.11+ and Git already installed.'
       }
     },
     'Windows': {
       'one-liner': {
         comment: '# Factory Windows 11 ready. Installs everything via winget. 🧠',
-        cmd: 'irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex',
+        cmd: 'irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex',
         hint: 'Run in PowerShell. Auto-installs Python, Git & GitHub CLI via winget.'
       },
       'manual': {
         comment: '# Clone, install deps, done.',
-        cmd: 'git clone https://github.com/kody-w/rapp-installer.git %USERPROFILE%\\.brainstem\\src && cd %USERPROFILE%\\.brainstem\\src\\rapp_brainstem && pip install -r requirements.txt && python brainstem.py',
+        cmd: 'git clone https://github.com/kody-w/rapp_orion.git %USERPROFILE%\\.brainstem\\src && cd %USERPROFILE%\\.brainstem\\src\\rapp_brainstem && pip install -r requirements.txt && python brainstem.py',
         hint: 'Requires Python 3.11+ and Git already installed.'
       }
     }

@@ -10,9 +10,9 @@
 
 ```
 library_repo: kody-w/AI-Agent-Templates (public)
-public_gateway: kody-w/rapp-installer (this repo)
+public_gateway: kody-w/rapp_orion (this repo)
 type: agent-library
-compatible_with: kody-w/CommunityRAPP, kody-w/rapp-installer
+compatible_with: kody-w/CommunityRAPP, kody-w/rapp_orion
 agent_base_class: BasicAgent
 manifest: manifest.json (auto-generated)
 ```

@@ -1,5 +1,5 @@
 # RAPP Brainstem Installer for Windows
-# Usage: irm https://raw.githubusercontent.com/kody-w/rapp-installer/main/install.ps1 | iex
+# Usage: irm https://raw.githubusercontent.com/kody-w/rapp_orion/main/install.ps1 | iex
 #
 # Works on a factory Windows 11 install — auto-installs Python, Git, and GitHub CLI via winget.
 
@@ -7,8 +7,8 @@ $ErrorActionPreference = "Stop"
 
 $BRAINSTEM_HOME = "$env:USERPROFILE\.brainstem"
 $BRAINSTEM_BIN = "$env:USERPROFILE\.local\bin"
-$REPO_URL = "https://github.com/kody-w/rapp-installer.git"
-$REMOTE_VERSION_URL = "https://raw.githubusercontent.com/kody-w/rapp-installer/main/rapp_brainstem/VERSION"
+$REPO_URL = "https://github.com/kody-w/rapp_orion.git"
+$REMOTE_VERSION_URL = "https://raw.githubusercontent.com/kody-w/rapp_orion/main/rapp_brainstem/VERSION"
 
 function Print-Banner {
     Write-Host ""

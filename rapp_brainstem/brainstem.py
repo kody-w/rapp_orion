@@ -1480,7 +1480,7 @@ def diagnostics_report():
 
     try:
         resp = requests.post(
-            "https://api.github.com/repos/kody-w/rapp-installer/issues",
+            "https://api.github.com/repos/kody-w/rapp_orion/issues",
             headers={
                 "Authorization": f"Bearer {github_token}",
                 "Accept": "application/vnd.github+json",
@@ -1505,7 +1505,7 @@ def diagnostics_report():
             try:
                 result = subprocess.run(
                     ["gh", "issue", "create",
-                     "--repo", "kody-w/rapp-installer",
+                     "--repo", "kody-w/rapp_orion",
                      "--title", f"🆘 Help request — v{VERSION}",
                      "--body", issue_body],
                     capture_output=True, text=True, timeout=30,
