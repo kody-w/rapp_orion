@@ -1,8 +1,8 @@
 {
-  "schema": "rapp-rappid/2.0",
-  "rappid": "rappid:@kody-w/rapp_orion:00c48fc540044d96a5480e2b90d8e29d",
+  "schema": "rapp/1",
+  "rappid": "rappid:@kody-w/rapp-orion:306377fc1ed2969f5d6ae567618cfc89c455ff73d9dab8c0bead75cbdc06ab1d",
   "kind": "variant",
-  "parent_rappid": "rappid:@kody-w/RAPP:0b635450c04249fbb4b1bdb571044dec",
+  "parent_rappid": "rappid:@kody-w/rapp:9a8f0a4b5a710e20f4d819a0f37d2a4c9f113b5e78fb3c29e70b54fff48a38f9",
   "parent_repo": "https://github.com/kody-w/RAPP.git",
   "parent_commit": "7b2390499ee9b238902db1470ccdfae89c1f0cbc",
   "born_at": "2026-06-27T13:30:47Z",
@@ -10,5 +10,9 @@
   "role": "variant",
   "description": "RAPP variant — local-first brainstem organism. Re-homed onto the RAPP species root under the single Eternity rappid standard (rapp-rappid/2.0).",
   "attestation": null,
-  "_migrated_from": "rappid/v1 (speciate.sh; schema retired). Originally templated from kody-w/rapp-installer (the locked legacy grail) and re-homed to the RAPP species root on 2026-06-27."
+  "_migrated_from": [
+    "rappid/v1 (speciate.sh; schema retired). Originally templated from kody-w/rapp-installer (the locked legacy grail) and re-homed to the RAPP species root on 2026-06-27.",
+    "rappid:@kody-w/rapp_orion:00c48fc540044d96a5480e2b90d8e29d"
+  ],
+  "_parent_migrated_from": "rappid:@kody-w/RAPP:0b635450c04249fbb4b1bdb571044dec"
 }

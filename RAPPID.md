@@ -6,7 +6,7 @@ global **Eternity rappid standard** (`rapp-rappid/2.0`) defined by the species r
 and `pages/vault/Architecture/Rappid.md`.
 
 - **This organism:** `rappid:@kody-w/rapp_orion:00c48fc540044d96a5480e2b90d8e29d`
-- **Parent (species root / godfather):** `rappid:@kody-w/RAPP:0b635450c04249fbb4b1bdb571044dec`
+- **Parent (species root / godfather):** `rappid:@kody-w/rapp:9a8f0a4b5a710e20f4d819a0f37d2a4c9f113b5e78fb3c29e70b54fff48a38f9`
 - **Manifest:** [`rappid.json`](./rappid.json) — schema `rapp-rappid/2.0`.
 
 There is **one rappid format, one species tree, one godfather.** A rappid is immutable; minting
