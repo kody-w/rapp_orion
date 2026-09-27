@@ -1,5 +1,9 @@
 # 🧠 RAPP Brainstem
 
+<!-- rapp1:network-header:start -->
+[![RAPP/1](https://kody-w.github.io/rapp-hive-public/portfolio/badges/rapp_orion.svg)](https://github.com/kody-w/rapp-hive-public/blob/main/portfolio/repos/rapp_orion.md) · **New to RAPP?** [Start here: get your Brainstem →](https://github.com/kody-w/rapp-installer#start-here)
+<!-- rapp1:network-header:end -->
+
 > **👉 [Get Started at kody-w.github.io/rapp-installer](https://kody-w.github.io/rapp-installer/)**
 
 A local-first AI agent server powered by GitHub Copilot. No API keys. No cloud setup. Just your GitHub account.
